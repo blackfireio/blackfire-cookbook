@@ -1,0 +1,6 @@
+.kitchen
+.kitchen.yml
+Gemfile.lock
+Berksfile.lock
+/vendor
+/bin

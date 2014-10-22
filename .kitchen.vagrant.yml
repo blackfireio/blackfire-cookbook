@@ -1,0 +1,25 @@
+---
+driver:
+  name: vagrant
+
+platforms:
+  - name: debian-7.6
+    driver_config:
+      box: chef/debian-7.6
+  - name: ubuntu-14.04
+  - name: centos-6.4
+  - name: fedora-20
+
+suites:
+  - name: default
+    run_list:
+        - recipe[apt]
+        - recipe[blackfire::mock]
+        - recipe[blackfire]
+    attributes:
+        blackfire:
+            agent:
+                collector: 'http://127.0.0.1:8780'
+                server_id: 'foo'
+                server_token: 'bar'
+                restart_mode: 'immediately'
