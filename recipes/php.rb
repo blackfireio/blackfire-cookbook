@@ -33,7 +33,9 @@ template node[cookbook_name]['php']['ini_path'] do
     'agent_timeout' => node[cookbook_name]['php']['agent_timeout'],
     'log_file' => node[cookbook_name]['php']['log_file'],
     'log_level' => node[cookbook_name]['php']['log_level'],
-    'socket' => node[cookbook_name]['agent']['socket']
+    'socket' => node[cookbook_name]['agent']['socket'],
+    'server_id' => node[cookbook_name]['php']['server_id'],
+    'server_token' => node[cookbook_name]['php']['server_token']
   )
   notifies :run, 'ruby_block[blackfire-php-restart-webserver]', :immediately
 end
