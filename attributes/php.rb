@@ -9,6 +9,8 @@ default['blackfire']['php']['version'] = nil
 default['blackfire']['php']['agent_timeout'] = '0.25'
 default['blackfire']['php']['log_level'] = nil
 default['blackfire']['php']['log_file'] = nil
+default['blackfire']['php']['server_id'] = nil
+default['blackfire']['php']['server_token'] = nil
 
 if platform_family?('rhel', 'fedora')
   default['blackfire']['php']['ini_path'] = '/etc/php.d/zz-blackfire.ini'
