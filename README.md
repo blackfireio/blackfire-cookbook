@@ -36,7 +36,7 @@ The following attributes are available to affect the installation/configuration 
 * `node['blackfire']['php']['log_file']` - Sets where the PHP extension write logs.
 * `node['blackfire']['php']['ini_path']` - Sets where the PHP configuration will be written.
 * `node['blackfire']['php']['server_id']` - Sets the Server ID to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)
-* `node['blackfire']['php']['server_id']` - Sets the Server Token to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)
+* `node['blackfire']['php']['server_token']` - Sets the Server Token to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)
 
 Usage
 -----
