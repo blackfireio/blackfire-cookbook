@@ -1,8 +1,8 @@
 name 'blackfire'
-maintainer 'SensioLabs'
-maintainer_email 'support@sensiolabs.com'
+maintainer 'Blackfire.io'
+maintainer_email 'support@blackfire.io'
 license 'MIT'
-description 'Installs and configures blackfire stack'
+description 'Installs and configures Blackfire.io stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '2.0.1'
 
