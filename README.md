@@ -122,10 +122,10 @@ supermarket. Once it's done use `rake publish`
 
 License and Authors
 -------------------
-- Author:: Tugdual Saunier (<tugdual.saunier@sensiolabs.com>)
+- Author:: Tugdual Saunier (<tugdual.saunier@blackfire.io>)
 
 ```text
-Copyright:: 2014-2015 SensioLabs
+Copyright:: 2014-2016 Blackfire.io
 
 See LICENSE file
 ```
