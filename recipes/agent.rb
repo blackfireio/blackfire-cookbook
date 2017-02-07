@@ -31,8 +31,8 @@ template '/etc/blackfire/agent' do
 end
 
 service 'blackfire-agent' do
-  not_if { node[cookbook_name]['agent']['server_id'].empty? }
-  not_if { node[cookbook_name]['agent']['server_token'].empty? }
+  not_if { node[cookbook_name]['agent']['server_id'].to_s == '' }
+  not_if { node[cookbook_name]['agent']['server_token'].to_s == '' }
   supports status: true, start: true, stop: true, restart: true
   action [:enable]
   subscribes :restart, 'template[/etc/blackfire/agent]',  node[cookbook_name]['agent']['restart_mode']
