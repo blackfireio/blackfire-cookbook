@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of blackfire cookbook.
 
+## 2.0.1:
+
+* Fix missing probe credentials config
+* Force Blackfire repositories update on run
+
 ## 2.0.0:
 
 * Initial open-source release of blackfire cookbook
