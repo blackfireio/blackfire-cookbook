@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of blackfire cookbook.
 
+## 2.0.2:
+
+* Prevent agent restart when no server credentials are provided
+* Fix typo in generated agent configuration
+* Fix PHP server token documentation
+
 ## 2.0.1:
 
 * Fix missing probe credentials config
