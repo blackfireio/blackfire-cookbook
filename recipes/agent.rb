@@ -10,7 +10,7 @@ include_recipe "#{cookbook_name}::repository"
 
 agent_version = node[cookbook_name]['agent']['version'] ? node[cookbook_name]['agent']['version'] : Blackfire::Versions.agent(node)
 
-agent_version << '-1' if platform_family?('rhel', 'fedora')
+agent_version << '-1' if platform_family?('rhel', 'fedora', 'amazon')
 
 package 'blackfire-agent' do
   version agent_version
