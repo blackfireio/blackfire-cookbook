@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of blackfire cookbook.
 
+## 2.1.0:
+
+* Add support for Amazon Linux
+
 ## 2.0.2:
 
 * Prevent agent restart when no server credentials are provided
