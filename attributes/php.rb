@@ -12,7 +12,7 @@ default['blackfire']['php']['log_file'] = nil
 default['blackfire']['php']['server_id'] = nil
 default['blackfire']['php']['server_token'] = nil
 
-if platform_family?('rhel', 'fedora')
+if platform_family?('rhel', 'fedora', 'amazon')
   default['blackfire']['php']['ini_path'] = '/etc/php.d/zz-blackfire.ini'
 elsif platform?('debian') && node['platform_version'].to_f < 7.0
   default['blackfire']['php']['ini_path'] = '/etc/php5/conf.d/blackfire.ini'

@@ -16,6 +16,7 @@ supports 'ubuntu'
 supports 'redhat'
 supports 'fedora'
 supports 'centos'
+supports 'amazon'
 
 depends 'apt'
 depends 'yum'
