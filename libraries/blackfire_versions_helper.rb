@@ -22,10 +22,10 @@ module Blackfire
     def self.fetch_releases(node = nil)
       uri = URI.parse("#{get_endpoint(node)}/api/v1/releases")
       http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = 'https' == uri.scheme
+      http.use_ssl = uri.scheme == 'https'
       response = http.get(uri.request_uri)
 
-      raise 'Unable to fetch Blackfire versions' unless '200' == response.code
+      raise 'Unable to fetch Blackfire versions' unless response.code == '200'
 
       response.body
     end

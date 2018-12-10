@@ -25,4 +25,3 @@ package 'blackfire-php' do
   version probe_version
   notifies :run, 'ruby_block[blackfire-php-restart-webserver]'
 end
-

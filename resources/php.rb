@@ -35,12 +35,12 @@ action :create do
                        "#{mods_path}/blackfire.ini"
                      end
   end
-    
+
   template local_ini_path do
     cookbook new_resource.cookbook
     source 'blackfire.ini.erb'
     variables(
-      agent_timeout:new_resource.agent_timeout,
+      agent_timeout: new_resource.agent_timeout,
       log_file: new_resource.log_file,
       log_level: new_resource.log_level,
       socket: new_resource.socket,
@@ -49,7 +49,7 @@ action :create do
     )
   end
 
-  execute 'phpenmod -V ALL blackfire' do
+  execute 'phpenmod -v ALL blackfire' do
     only_if 'which phpenmod'
   end
 end

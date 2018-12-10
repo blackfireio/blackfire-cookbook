@@ -10,7 +10,7 @@ describe 'blackfire::default' do
     ChefSpec::SoloRunner.new do |node|
       node.normal['blackfire']['agent']['server_id'] = 'foo'
       node.normal['blackfire']['agent']['server_token'] = 'bar'
-    end.converge('blackfire::default') 
+    end.converge('blackfire::default')
   end
 
   it 'Install blackfire repository' do
