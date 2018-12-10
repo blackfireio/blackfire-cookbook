@@ -25,7 +25,7 @@ module Blackfire
       http.use_ssl = 'https' == uri.scheme
       response = http.get(uri.request_uri)
 
-      raise 'Impossible to fetch Blackfire versions' unless '200' == response.code
+      raise 'Unable to fetch Blackfire versions' unless '200' == response.code
 
       response.body
     end

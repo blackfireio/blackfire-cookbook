@@ -4,7 +4,7 @@ maintainer_email 'support@blackfire.io'
 license 'MIT'
 description 'Installs and configures Blackfire.io stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '2.1.0'
+version '3.0.0'
 
 recipe 'default', 'Installs blackfire-php & blackfire-agent.'
 recipe 'php', 'Installs only blackfire-php'
@@ -17,6 +17,3 @@ supports 'redhat'
 supports 'fedora'
 supports 'centos'
 supports 'amazon'
-
-depends 'apt'
-depends 'yum'

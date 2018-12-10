@@ -18,8 +18,7 @@ ruby_block 'blackfire-php-restart-webserver' do
   action :nothing
 end
 
-probe_version = node[cookbook_name]['php']['version'] ? node[cookbook_name]['php']['version'] : Blackfire::Versions.probe(node)
-
+probe_version = Blackfire::Versions.probe(node)
 probe_version << '-1' if platform_family?('rhel', 'fedora', 'amazon')
 
 package 'blackfire-php' do
@@ -27,15 +26,3 @@ package 'blackfire-php' do
   notifies :run, 'ruby_block[blackfire-php-restart-webserver]'
 end
 
-template node[cookbook_name]['php']['ini_path'] do
-  source 'blackfire.ini.erb'
-  variables(
-    'agent_timeout' => node[cookbook_name]['php']['agent_timeout'],
-    'log_file' => node[cookbook_name]['php']['log_file'],
-    'log_level' => node[cookbook_name]['php']['log_level'],
-    'socket' => node[cookbook_name]['agent']['socket'],
-    'server_id' => node[cookbook_name]['php']['server_id'],
-    'server_token' => node[cookbook_name]['php']['server_token']
-  )
-  notifies :run, 'ruby_block[blackfire-php-restart-webserver]', :immediately
-end
