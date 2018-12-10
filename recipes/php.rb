@@ -18,7 +18,7 @@ ruby_block 'blackfire-php-restart-webserver' do
   action :nothing
 end
 
-probe_version = Blackfire::Versions.probe(node)
+probe_version = node[cookbook_name]['php']['version'] ? node[cookbook_name]['php']['version'] : Blackfire::Versions.probe(node)
 probe_version << '-1' if platform_family?('rhel', 'fedora', 'amazon')
 
 package 'blackfire-php' do
