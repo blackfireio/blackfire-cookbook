@@ -7,13 +7,9 @@ Requirements
 ------------
 
 #### Platform
-* Ubuntu (10.04/11.04/12.04/13.04/14.04)
-* Debian (6.0/7.0)
+* Ubuntu (12.04/13.04/14.04/16.06/18.04)
+* Debian (7/8/9)
 * RedHat Based (CentOS 6.4 and Fedora 20 tested, others should work)
-
-#### cookbooks
-- apt
-- yum
 
 Attributes
 ----------
@@ -28,15 +24,6 @@ The following attributes are available to affect the installation/configuration 
 * `node['blackfire']['agent']['log_level']` - Sets the logging level for the agent. Default 1
 * `node['blackfire']['agent']['log_file']` - Sets where the agent write logs. Default "stderr"
 * `node['blackfire']['agent']['socket']` - Sets where the socket the agent will listen to. Default "unix:///var/run/blackfire/agent.sock"
-
-#### blackfire::php
-* `node['blackfire']['php']['version']` - Sets which version of the PHP extension will be installed. Default last version.
-* `node['blackfire']['php']['agent_timeout']` - Sets the PHP extension timeout when communicating with the agent. Default '0.25'
-* `node['blackfire']['php']['log_level']` - Sets the logging level for the PHP extension.
-* `node['blackfire']['php']['log_file']` - Sets where the PHP extension write logs.
-* `node['blackfire']['php']['ini_path']` - Sets where the PHP configuration will be written.
-* `node['blackfire']['php']['server_id']` - Sets the Server ID to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)
-* `node['blackfire']['php']['server_token']` - Sets the Server Token to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)
 
 Usage
 -----
@@ -73,24 +60,48 @@ This cookbook makes no assumption about the webserver you use.
 Therefore this is *your* responsability to write a wrapper and notify your
 webserver (ie. Apache or php5-fpm) for reload/restart or subscribe the good
 resources.
+To do that, you can use `blackfire_php` resource to manage blackfire.ini and notify php service according to php version. It's very usefull if you have many php version on the same server.
 
 You can obtain futher informations on wrapper cookbooks here:
-https://www.getchef.com/blog/2013/12/03/doing-wrapper-cookbooks-right/
+https://blog.chef.io/2017/02/14/writing-wrapper-cookbooks/
 
-One way to do that (maybe the best to avoid disturbing logs messages):
+Resources
+---------
 
+### 'blackfire_php'
+
+Manage blackfire.ini for a specific version of PHP
+
+#### Actions
+
+- `create` - (default) Create blackfire.ini file 
+
+#### Properties
+
+Name           | Types  | Description                                                                                                                        | Default         
+-------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------
+`version`      | String | Define version of PHP                                                                                                              | <resource_name> 
+`cookbook`     | String | Cookbook name of blackfire.ini template                                                                                            | 'blackfire'     
+`ini_path`     | String | Path of blackfire.ini. Autodetected if not specified                                                                               | ''  
+`agent_timeout | String | Sets the PHP extension timeout when communicating with the agent                                                                   | '0.25'
+`log_file`     | String | Sets where the PHP extension write logs                                                                                            |
+`log_level`    | String | Sets the logging level for the PHP extension                                                                                       |
+`socket`       | String | Sets where the socket the agent will listen to                                                                                     | 'unix:///var/run/blackfire/agent.sock'
+`server_id`    | String | Sets the Server ID to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration)    |
+`server_token` | String | Sets the Server Token to use for probe fine-grained configuration (See https://blackfire.io/doc/configuration#probe-configuration) |
+
+#### Examples
+
+In a wrapper cookbook:
 ```ruby
-include_recipe "blackfire"
+include_recipe 'blackfire'
 
-begin
-  r = resources(:ruby_block => "blackfire-php-restart-webserver")
-  r.block do
-  end
-  r.notifies :reload, "service[php5-fpm]"
-rescue Chef::Exceptions::ResourceNotFound
-  Chef::Log.warn 'could not find resource "ruby_block[blackfire-php-restart-webserver]" to override!'
+blackfire_php '7.1' do
+  agent_timeout '0.75'
+  log_file '/var/log/php/7.1/blackfire.log'
+  server_id 'foo'
+  server_token 'bar'
 end
-
 ```
 
 Contributing
