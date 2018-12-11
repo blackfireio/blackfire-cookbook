@@ -3,24 +3,24 @@ driver:
   name: docker
 
 platforms:
-  - name: debian-6
-    driver_config:
-      image: chef/debian-6
-      platform: debian
-      require_chef_omnibus: false
   - name: debian-7
     driver_config:
       image: chef/debian-7
       platform: debian
       require_chef_omnibus: false
-  - name: ubuntu-12.04
+  - name: debian-8
     driver_config:
-      image: chef/ubuntu-12.04
+      image: chef/debian-8
+      platform: debian
+      require_chef_omnibus: false
+  - name: ubuntu-16.04
+    driver_config:
+      image: chef/ubuntu-16.04
       platform: ubuntu
       require_chef_omnibus: false
-  - name: ubuntu-14.04
+  - name: ubuntu-18.04
     driver_config:
-      image: chef/ubuntu-14.04
+      image: chef/ubuntu-18.04
       platform: ubuntu
       require_chef_omnibus: false
   - name: centos-6.4
@@ -28,11 +28,15 @@ platforms:
       image: chef/centos-6
       platform: centos
       require_chef_omnibus: false
+  - name: centos-7.6
+    driver_config:
+      image: chef/centos-7
+      platform: centos
+      require_chef_omnibus: false
 
 suites:
   - name: docker
     run_list:
-        - recipe[apt]
         - recipe[blackfire::mock]
         - recipe[blackfire]
     attributes:

@@ -7,7 +7,10 @@ at_exit { ChefSpec::Coverage.report! }
 
 describe 'blackfire::default' do
   let(:chef_run) do
-    ChefSpec::SoloRunner.converge('blackfire::default')
+    ChefSpec::SoloRunner.new do |node|
+      node.normal['blackfire']['agent']['server_id'] = 'foo'
+      node.normal['blackfire']['agent']['server_token'] = 'bar'
+    end.converge('blackfire::default')
   end
 
   it 'Install blackfire repository' do
@@ -32,7 +35,7 @@ end
 describe 'blackfire::default without repository installation' do
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
-      node.set['blackfire']['install_repository'] = false
+      node.normal['blackfire']['install_repository'] = false
     end.converge('blackfire::default')
   end
 

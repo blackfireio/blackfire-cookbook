@@ -16,3 +16,5 @@ default['blackfire']['agent']['log_level'] = 1
 default['blackfire']['agent']['log_file'] = 'stderr'
 default['blackfire']['agent']['socket'] = 'unix:///var/run/blackfire/agent.sock'
 default['blackfire']['agent']['restart_mode'] = :delayed
+
+default['blackfire']['php']['version'] = nil
