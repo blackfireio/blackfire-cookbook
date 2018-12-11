@@ -60,7 +60,9 @@ This cookbook makes no assumption about the webserver you use.
 Therefore this is *your* responsability to write a wrapper and notify your
 webserver (ie. Apache or php5-fpm) for reload/restart or subscribe the good
 resources.
-To do that, you can use `blackfire_php` resource to manage blackfire.ini and notify PHP service according to PHP version. It's very usefull if you have many PHP version on the same server.
+To do that, you can use `blackfire_php` resource to manage blackfire.ini and 
+notify PHP service according to PHP version. It's very usefull if you have 
+many PHP version on the same server.
 
 You can obtain futher informations on wrapper cookbooks here:
 https://blog.chef.io/2017/02/14/writing-wrapper-cookbooks/
