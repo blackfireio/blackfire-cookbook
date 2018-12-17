@@ -3,6 +3,7 @@
 # Cookbook Name:: blackfire
 # Attributes:: default
 #
+# Copyright 2018, Blackfire
 # Copyright 2014-2015, SensioLabs
 
 default['blackfire']['repository'] = 'http://packages.blackfire.io'
