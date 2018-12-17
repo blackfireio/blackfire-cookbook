@@ -2,6 +2,7 @@
 # Cookbook Name:: blackfire
 # Recipe:: php
 #
+# Copyright 2018, Blackfire
 # Copyright 2014-2015, SensioLabs
 # See LICENSE file
 #

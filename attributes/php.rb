@@ -3,6 +3,7 @@
 # Cookbook Name:: blackfire
 # Attributes:: php
 #
+# Copyright 2018, Blackfire
 # Copyright 2014-2015, SensioLabs
 
 default['blackfire']['php']['version'] = nil
