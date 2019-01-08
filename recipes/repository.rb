@@ -12,7 +12,7 @@ when 'rhel', 'fedora', 'amazon'
   yum_repository 'blackfire' do
     description 'blackfire'
     baseurl "#{node[cookbook_name]['repository']}/fedora/$releasever/$basearch"
-    gpgkey 'https://packagecloud.io/gpg.key'
+    gpgkey 'https://packages.blackfire.io/gpg.key'
     gpgcheck false
     sslverify true
     sslcacert '/etc/pki/tls/certs/ca-bundle.crt'
@@ -23,7 +23,7 @@ else
   r = apt_repository 'blackfire' do
     uri "#{node[cookbook_name]['repository']}/#{node['platform']}"
     distribution 'any'
-    key 'https://packagecloud.io/gpg.key'
+    key 'https://packages.blackfire.io/gpg.key'
     components ['main']
     action :nothing
     only_if { node['blackfire']['install_repository'] }
