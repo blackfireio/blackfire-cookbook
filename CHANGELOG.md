@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of blackfire cookbook.
 
+## 2.2.0:
+
+* Update gpg key URL
+* Update copyright holder
+
 ## 2.1.0:
 
 * Add support for Amazon Linux
