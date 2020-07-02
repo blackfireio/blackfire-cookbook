@@ -31,7 +31,6 @@ end
 template node[cookbook_name]['php']['ini_path'] do
   source 'blackfire.ini.erb'
   variables(
-    'agent_timeout' => node[cookbook_name]['php']['agent_timeout'],
     'log_file' => node[cookbook_name]['php']['log_file'],
     'log_level' => node[cookbook_name]['php']['log_level'],
     'socket' => node[cookbook_name]['agent']['socket'],

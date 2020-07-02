@@ -7,7 +7,6 @@
 # Copyright 2014-2015, SensioLabs
 
 default['blackfire']['php']['version'] = nil
-default['blackfire']['php']['agent_timeout'] = '0.25'
 default['blackfire']['php']['log_level'] = nil
 default['blackfire']['php']['log_file'] = nil
 default['blackfire']['php']['server_id'] = nil

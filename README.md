@@ -31,7 +31,6 @@ The following attributes are available to affect the installation/configuration 
 
 #### blackfire::php
 * `node['blackfire']['php']['version']` - Sets which version of the PHP extension will be installed. Default last version.
-* `node['blackfire']['php']['agent_timeout']` - Sets the PHP extension timeout when communicating with the agent. Default '0.25'
 * `node['blackfire']['php']['log_level']` - Sets the logging level for the PHP extension.
 * `node['blackfire']['php']['log_file']` - Sets where the PHP extension write logs.
 * `node['blackfire']['php']['ini_path']` - Sets where the PHP configuration will be written.
