@@ -6,7 +6,7 @@
 # Copyright 2018, Blackfire
 # Copyright 2014-2015, SensioLabs
 
-default['blackfire']['repository'] = 'http://packages.blackfire.io'
+default['blackfire']['repository'] = 'https://packages.blackfire.io'
 default['blackfire']['install_repository'] = true
 
 default['blackfire']['agent']['version'] = nil
