@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of blackfire cookbook.
 
+## 2.4.0:
+
+* Use HTTPS for packages repository
+
 ## 2.3.0:
 
 * Remove unused blackfire.agent_timeout setting

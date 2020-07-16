@@ -4,7 +4,7 @@ maintainer_email 'support@blackfire.io'
 license 'MIT'
 description 'Installs and configures Blackfire.io stack'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '2.3.0'
+version '2.4.0'
 
 recipe 'default', 'Installs blackfire-php & blackfire-agent.'
 recipe 'php', 'Installs only blackfire-php'
